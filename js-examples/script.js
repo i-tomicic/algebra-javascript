@@ -197,7 +197,7 @@ if (z === 2) {
 // 2. Dodajte svoje ime na kraj niza.
 // 3. Koristeći petlju, napravite iteraciju kroz ovaj niz te nakon što ispišete "Jane" izađite iz petlje.
 
-var names = ["John", "Jane", "Bob", "Mike"];
+/* var names = ["John", "Jane", "Bob", "Mike"];
 
 for (i in names) {
   console.log(`${names}`);
@@ -216,4 +216,216 @@ for (i in names) {
   if (names[i] === "Jane") {
     break;
   }
+} */
+
+// ARRAYS (polja, nizovi)
+// console.log("\n \n \n ARRAYS:");
+// let numbers = [1, 2, 3, 4, 5];
+// let names = ["Ivan", "Igor", true, 666, "Jane"];
+
+// console.log(names);
+
+// for (i in names) {
+//   console.log(typeof names[i]);
+// }
+
+// var weirdArray = [1, , 3];
+
+// console.log(weirdArray);
+// console.log(typeof weirdArray[1]);
+
+// var arrayLength5 = new Array(5);
+// console.log(arrayLength5);
+
+// var testArray = [];
+// console.log(testArray);
+// testArray[3] = "testis";
+// console.log(testArray);
+// testArray[6] = "neutrum";
+// console.log(testArray);
+
+// names.push(NaN);
+// console.log(names);
+// console.log(names.join(" --- "));
+// names.pop(1);
+// console.log(names);
+
+// names.forEach((tralala) => {
+//   console.log(tralala);
+//   let education = "needuciran";
+//   console.log(tralala + " je " + education);
+// });
+
+// let newNames = names.map((name) => {
+//   if (name === "Jane") {
+//     name = "Jana";
+//   }
+//   return name;
+// });
+// console.log(newNames);
+// console.log(names);
+
+// let matrix = [numbers, names];
+// console.log(matrix);
+// console.log(matrix.length);
+// console.log(matrix[0][1]);
+// console.log((matrix[0][8] = 7));
+// console.log(matrix.length);
+// console.log(matrix);
+
+// names.forEach((ime) => console.log(ime));
+// console.log("");
+// matrix.forEach((item) => item.forEach((item2) => console.log(item2)));
+// console.log("\n \n \n FUNKCIJE:");
+
+// FUNKCIJE
+
+// function hello() {
+//   console.log("Hello, world!");
+// }
+
+// function myFunc(a, b) {
+//   if (!b) {
+//     b = 1;
+//   }
+//   console.log(a + b);
+// }
+// myFunc(5);
+
+// valjda se može koristiti .this s ovakvim načinom definiranja funkcije
+// let addOne = function (value) {
+//   return value + 1;
+// };
+// console.log(addOne(9));
+
+// console.log("\n \n \n OBJEKTI:");
+
+// OBJEKTI
+
+// object literal, nije (baš) kasnije promjenjiv, inače koristiti operator new ili funkciju Object.create()
+// var dog = {
+//   breed: "Golden retriever",
+//   color: "gold",
+//   bark: function () {
+//     return "Wuf wuf!";
+//   },
+//   "has toy": false,
+// };
+
+// console.log(dog);
+// console.log(dog.breed);
+// console.log(dog["has toy"]); // ako naziv keya ima dvije riječi (ili crtice?) ne može se koristiti dog.key
+// console.log(dog.bark());
+// for (key in dog) {
+//   console.log(key);
+// }
+// Zašto ovo ne radi?
+/* for (let value of dog) {
+  console.log(value);
+} */
+
+// dog.age = 7;
+// dog.numberOfLegs = 4;
+// dog.name = "Rex";
+
+// console.log(dog);
+
+// console.log(delete dog.numberOfLegs);
+// delete dog.name;
+
+// console.log(dog);
+
+// dogJSON = JSON.stringify(dog);
+// console.log(dogJSON);
+
+// class Animal {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+// }
+
+// let cat = new Animal("Mačka", 45);
+// console.log(cat);
+
+// VJEŽBE
+
+let polaznici = [
+  {
+    name: "Igor",
+    surname: "Boroja",
+    age: 18,
+  },
+  {
+    name: "Ivan",
+    surname: "Munitić",
+    age: 13,
+  },
+  {
+    name: "Aleks",
+    surname: "Ivanac",
+    age: 24,
+  },
+  {
+    name: "Danijel",
+    surname: "Hrgić",
+    age: 67,
+  },
+  {
+    name: "Darko",
+    surname: "Šušnjar",
+    age: 12,
+  },
+  {
+    name: "Luka",
+    surname: "Modrić",
+  },
+];
+
+console.log(polaznici);
+
+// function checkAge(age) {
+//   if (age < 18) {
+//     return "Polaznik je maloljetan";
+//   }
+//   if (age >= 67) {
+//     return "Polaznik je za penziju";
+//   }
+//   return "Polaznik je punoljetan";
+// }
+
+// polaznici.forEach((polaznik) => {
+//   console.log("Ime: " + polaznik.name + " " + polaznik.surname);
+//   console.log(checkAge(polaznik.age));
+// });
+
+// console.log("\n\n");
+
+function checkAge(age, name, surname) {
+  let ageResponse = "";
+  let fullName = name + " " + surname;
+  switch (true) {
+    case age < 18:
+      ageResponse = fullName + " je maloljetan";
+      break;
+    case age >= 67:
+      ageResponse = fullName + " je za penziju";
+      break;
+    case age >= 18 && age < 67:
+      ageResponse = fullName + " je punoljetan";
+      break;
+    default:
+      ageResponse = fullName + " se nije još rodio!";
+  }
+  return ageResponse;
 }
+
+polaznici.forEach((polaznik) =>
+  console.log(checkAge(polaznik.age, polaznik.name, polaznik.surname))
+);
+console.log("\n\n");
+
+// pazi sad ovo!
+polaznici.forEach(({ age, name, surname }) =>
+  console.log(checkAge(age, name, surname))
+);
