@@ -60,6 +60,8 @@ console.log(typeof NaN);
 
 // Hands-on First Task
 
+// printLines();
+
 // const printLines = function () {
 //   console.log(secondLine);
 
@@ -70,25 +72,36 @@ console.log(typeof NaN);
 //   console.log(secondLine);
 // };
 
-// printLines();
-
 // Hands-on Second Task
 
-/* const madeOfGlass = function () {
-  const thing = "window";
-  thing = "glass";
+// const madeOfGlass = function () {
+//   const thing = "window";
+//   thing = "glass";
 
-  console.log(thing);
-};
+//   console.log(thing);
+// };
 
-madeOfGlass(); */
+// madeOfGlass();
 
 // Hands-on Third Task
 
-/* let first = [1, 2, 3];
-let second = [2, 4, 6];
+// let first = [5, 2, 4, "b", "a", "t", "ž"];
+// let second = [2, 3, 1, "b", "l", "š"];
 
-function arrayMachine([], []) {} */
+// let arrayMachine = function (arr1, arr2) {
+//   let finalArray = arr1.concat(arr2);
+//   finalArray = [...new Set(finalArray)];
+//   console.log(finalArray);
+//   console.log(finalArray.sort());
+//   console.log(finalArray.reverse());
+// };
+
+// arrayMachine(first, second);
+
+/* const first = [5, 2, 4];
+const second = [2, 3, 1];
+first.push(...second);
+console.log(first); */
 
 // vježba - 02_47/95
 
@@ -350,7 +363,7 @@ for (i in names) {
 
 // VJEŽBE
 
-let polaznici = [
+/* let polaznici = [
   {
     name: "Igor",
     surname: "Boroja",
@@ -380,9 +393,9 @@ let polaznici = [
     name: "Luka",
     surname: "Modrić",
   },
-];
+]; */
 
-console.log(polaznici);
+// console.log(polaznici);
 
 // function checkAge(age) {
 //   if (age < 18) {
@@ -401,7 +414,7 @@ console.log(polaznici);
 
 // console.log("\n\n");
 
-function checkAge(age, name, surname) {
+/* function checkAge(age, name, surname) {
   let ageResponse = "";
   let fullName = name + " " + surname;
   switch (true) {
@@ -418,9 +431,9 @@ function checkAge(age, name, surname) {
       ageResponse = fullName + " se nije još rodio!";
   }
   return ageResponse;
-}
+} */
 
-polaznici.forEach((polaznik) =>
+/* polaznici.forEach((polaznik) =>
   console.log(checkAge(polaznik.age, polaznik.name, polaznik.surname))
 );
 console.log("\n\n");
@@ -428,4 +441,40 @@ console.log("\n\n");
 // pazi sad ovo!
 polaznici.forEach(({ age, name, surname }) =>
   console.log(checkAge(age, name, surname))
-);
+); */
+
+// Complex object destructuring
+/* const car = {
+  name: "Ferrari",
+  country: "IT",
+  dimensions: {
+    lenght: 550,
+    height: 120,
+  },
+};
+
+const {
+  name,
+  country,
+  dimensions: { lenght, height },
+} = car;
+
+console.log(name);
+console.log(country);
+console.log(lenght);
+console.log(height); */
+
+// SPREAD
+
+// const lizard = {
+//   breed: "dragon",
+//   color: "gold",
+// };
+
+// const human = {
+//   name: "Igor",
+//   age: "-13",
+//   ...lizard,
+// };
+
+// console.log(human);
