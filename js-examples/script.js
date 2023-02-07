@@ -478,3 +478,39 @@ console.log(height); */
 // };
 
 // console.log(human);
+
+// PRAKTIČNO KORIŠTENJE TIMEOUTA
+
+// function sendEmail() {
+//   const alertMessageEl = document.querySelector(".alert-message"); // MessageEl jer smo u varijablu pohranili element
+
+//   alertMessageEl.style.visibility = "visible";
+
+//   setTimeout(() => {
+//     alertMessageEl.style.visibility = "hidden";
+//   }, 3000);
+// }
+
+// setInterval(() => {
+//   console.log("Ovo ide presporo!");
+// }, 5000);
+
+// vježba 03_DOM_Manipulacija p20/44
+
+const h1 = document.createElement("h1");
+h1.textContent = "KARLOVAC";
+
+const infoDiv = document.createElement("div");
+infoDiv.className = "info"; // pregazi postojeće klase
+infoDiv.classList.add = "info"; //dodaje dodatnu klasu
+
+document.body.prepend(h1);
+
+document.body.insertBefore(
+  infoDiv,
+  document.querySelector(".description").nextSibling
+);
+
+for (let x = 0; x < 3; x++) {
+  document.querySelector("ul").appendChild(document.createElement("li"));
+}
