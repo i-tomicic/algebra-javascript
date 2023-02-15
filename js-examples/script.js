@@ -514,3 +514,112 @@ document.body.insertBefore(
 for (let x = 0; x < 3; x++) {
   document.querySelector("ul").appendChild(document.createElement("li"));
 }
+
+// 15.2.2023. Bornina prezentacija "6 - Advanced JavaScript"
+
+/*
+const person = {
+  breed: "programer",
+  sex: "never",
+};
+
+const person2 = person; // ne radi kopiju, već uzima referencu (adresu)
+person2.sex = "rarely"; // zbog referenciranja promijenit će oba objekta
+
+console.log(person);
+console.log(person2);
+*/
+
+// 8/33
+// New object is created with CONSTRUCTOR FUNCTION (za naziv koristimo PascalCase)
+/*
+function Vehicle(brand, model, color) {
+  this.brand = brand;
+  this.model = model;
+  this.color = color;
+  this.getSummary = function () {
+    return `I'm ${this.color} ${this.brand} ${this.model}!`;
+  };
+}
+
+const vehicle = new Vehicle("Ford", "Mustang", "red"); // obavezno koristiti new
+const vehicle2 = new Vehicle("Titanic", "Boat", "yellow");
+
+console.log(vehicle);
+console.log(vehicle2);
+console.log(vehicle.getSummary());
+console.log(vehicle2.getSummary());
+*/
+
+// 9/33
+/*
+function Vehicle(brand, model, color) {
+  this.brand = brand;
+  this.model = model;
+  this.color = color;
+}
+
+Vehicle.prototype.getSummary = function () {
+  return `I'm ${this.color} ${this.brand} ${this.model}!`;
+};
+
+function Car(brand, model, color) {
+  Vehicle.call(this, brand, model, color);
+  this.type = "Car";
+}
+Car.prototype = Object.create(Vehicle.prototype);
+
+function Boat(brand, model, color) {
+  Vehicle.call(this, brand, model, color);
+  this.type = "Boat";
+}
+Boat.prototype = Object.create(Vehicle.prototype);
+
+const car = new Car("Ford", "Mustang", "red");
+const boat = new Boat("Titanic", "Boat", "yellow");
+
+console.log(car);
+console.log(boat);
+console.log(car.getSummary());
+console.log(boat.getSummary());
+*/
+
+// 11/33 KLASA
+
+class Vehicle {
+  constructor(brand, model, color) {
+    this.brand = brand;
+    this.model = model;
+    this.color = color;
+  }
+
+  getSummary() {
+    return `I'm ${this.color} ${this.brand} ${this.model}!`;
+  }
+}
+
+class Car extends Vehicle {
+  constructor(brand, model, color) {
+    super(brand, model, color);
+    this.type = "Car";
+  }
+}
+
+class Boat extends Vehicle {
+  constructor(brand, model, color) {
+    super(brand, model, color);
+    this.type = "Boat";
+  }
+  sink() {
+    return `The ${this.brand} sinks, oh no!`;
+  }
+}
+
+const car = new Car("Ford", "Mustang", "red");
+const boat = new Boat("Titanic", "Boat", "yellow");
+
+console.log(car);
+console.log(boat);
+console.log(car.getSummary());
+console.log(boat.getSummary());
+console.log(boat.sink());
