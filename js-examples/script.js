@@ -497,6 +497,7 @@ console.log(height); */
 
 // vježba 03_DOM_Manipulacija p20/44
 
+/*
 const h1 = document.createElement("h1");
 h1.textContent = "KARLOVAC";
 
@@ -514,6 +515,7 @@ document.body.insertBefore(
 for (let x = 0; x < 3; x++) {
   document.querySelector("ul").appendChild(document.createElement("li"));
 }
+*/
 
 // 15.2.2023. Bornina prezentacija "6 - Advanced JavaScript"
 
@@ -586,6 +588,7 @@ console.log(boat.getSummary());
 
 // 11/33 KLASA
 
+/*
 class Vehicle {
   constructor(brand, model, color) {
     this.brand = brand;
@@ -623,3 +626,154 @@ console.log(boat);
 console.log(car.getSummary());
 console.log(boat.getSummary());
 console.log(boat.sink());
+*/
+
+// 13/33 CALLBACK FUNCTION
+
+/* jednostavan primjer:
+let prvi = 5;
+let drugi = 10;
+
+function zbroj(x, y, callback) {
+  const z = x + y;
+  callback(z);
+}
+
+zbroj(prvi, drugi, function (z) {
+  if (z < 10) {
+    console.log("Zbroj je manji od 10");
+  } else {
+    console.log("Zbroj je veći od 10");
+  }
+});
+*/
+
+// const processOrder = function (name, meal, estimation, callback) {
+//   let status = `${name}'s ${meal} is preparing!`;
+//   callback(status);
+
+//   setTimeout(function () {
+//     status = `${name}'s ${meal} is prepared!`;
+//     callback(status);
+//   }, estimation);
+// };
+
+// console.log("Matilda orders...");
+// processOrder("Matilda", "Cheesburger", 3000, function (status) {
+//   console.log(status);
+// });
+
+// console.log("Joseph orders...");
+// processOrder("Joseph", "Fruit salad", 5000, function (status) {
+//   console.log(status);
+// });
+
+// console.log("Tina orders...");
+// processOrder("Tina", "Bottle of water", 1000, function (status) {
+//   console.log(status);
+// });
+
+// 15/33 CALLBACK FUNCTION p2
+
+/**
+ * buildSomething function
+ *
+ * @param {string} housePart - Part of a house that is going to be built next
+ * @param {number} estimate - How much time it takes to build housePart
+ * @param {function} callback - Function that is being passed as argument
+ */
+
+/*
+const buildSomething = function (housePart, estimate, callback) {
+  console.log(housePart + " building started...");
+
+  // setTimeout(function () {
+  //   if (true) {
+  //     callback(housePart, "ready");
+  //   } else {
+  //     callback(housePart, "not ready");
+  //   }
+  // }, estimate);
+
+  setTimeout(function () {
+    callback(housePart, "ready");
+    console.log("?");
+  }, estimate);
+  console.log("Test!");
+};
+
+buildSomething("Foundations", 1000, function (housePart, status) {
+  let houseParts = housePart;
+  console.log(`${houseParts} are ${status}`);
+
+  // if (status === "ready") {
+  buildSomething("Walls", 2000, function (housePart, status) {
+    houseParts += `, ${housePart}`;
+    console.log(`${houseParts} are ${status}`);
+
+    // if (status === "ready") {
+    buildSomething("Roof", 3000, function (housePart, status) {
+      houseParts += `, ${housePart}`;
+      console.log(`${houseParts} are ${status}`);
+      console.log("House is built!");
+    });
+    // }
+  });
+  // }
+});
+*/
+
+// 18/33 PROMISES
+
+/*
+const buildSomething = function (housePart, estimate) {
+  console.log(housePart + " building started...");
+
+  return new Promise((resolve, reject) => {
+    setTimeout(function () {
+      if (true) {
+        resolve("ready");
+      } else {
+        reject("Unexpected error found, building can not be continued!");
+      }
+    }, estimate);
+  });
+};
+
+buildSomething("Foundations", 1000)
+  .then((status) => {
+    console.log(`Foundations are ${status}`);
+    return buildSomething("Walls", 1000);
+  })
+  .then((status) => {
+    console.log(`Walls are ${status}`);
+    return buildSomething("Roof", 1000);
+  })
+  .then((status) => {
+    console.log(`Roof is ${status}`);
+    console.log("House is built!");
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  .finally(() => {
+    console.log("Idemo doma, bez obzira jel kuća gotova ili ne!");
+  });
+*/
+
+// 18/33 SPREAD
+
+/*
+let numbers = [1, 2, 3, 4, 5];
+
+function zbroj(a, b, c, d, e) {
+  console.log("Zbroj svih pribrojnika je: ", a + b + c + d + e);
+}
+
+for (index in numbers) {
+  numbers[index] = Math.round(100 * Math.random());
+  console.log(numbers);
+}
+
+zbroj(...numbers);
+*/
