@@ -62,17 +62,17 @@ export default class Lottery {
           winningCombination: this.winningCombination,
           winners,
         };
-        console.log(result);
+        // console.log(result);
 
         if (winners.length) {
           resolve(result);
-          console.log("Ima pobjednika i to su:");
-          console.log(winners);
+          // console.log("Ima pobjednika i to su:");
+          // console.log(winners);
         } else {
-          console.log("nema pobjednika");
+          // console.log("nema pobjednika");
           reject(result);
         }
-      }, 1000);
+      }, 50);
     });
   }
 }

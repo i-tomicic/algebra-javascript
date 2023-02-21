@@ -10,6 +10,7 @@ const winnersEl = document.querySelector(".winners");
 const lottery = new Lottery(politicians);
 
 buttonStartLotteryEl.addEventListener("click", () => {
+  lottery.players = [];
   buttonStartLotteryEl.disabled = true;
   buttonStartLotteryEl.innerText = "Lottery drawing in progress...";
   lotteryResultsEl.style.display = "none";
@@ -17,8 +18,9 @@ buttonStartLotteryEl.addEventListener("click", () => {
   lottery
     .startDrawing()
     .then((result) => {
-      console.log("EJ IMA POBJEDNIKA JEBOTE");
+      // console.log("EJ IMA POBJEDNIKA JEBOTE");
       lotteryResultsEl.style.display = "block";
+      winnersEl.style.display = "block";
       winningCombinationEl.innerText = `Winning combination was: ${result.winningCombination}`;
       winnersMessageEl.innerText = "Winners: ";
 
@@ -30,7 +32,7 @@ buttonStartLotteryEl.addEventListener("click", () => {
       winnersEl.innerHTML = winnersList;
     })
     .catch((result) => {
-      console.log("JEBOTE NEMA POBJEDNIKA");
+      // console.log("JEBOTE NEMA POBJEDNIKA");
       winnersEl.style.display = "none";
       winningCombinationEl.innerText = `Winning combination was: ${result.winningCombination}`;
       winnersMessageEl.innerText = "There are no winners";
@@ -39,5 +41,7 @@ buttonStartLotteryEl.addEventListener("click", () => {
       buttonStartLotteryEl.innerText = "Start lottery drawing";
       buttonStartLotteryEl.disabled = false;
       lotteryResultsEl.style.display = "block";
+      console.log("Lottery:");
+      console.log(lottery);
     });
 });
