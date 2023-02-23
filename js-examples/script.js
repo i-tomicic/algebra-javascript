@@ -1,45 +1,28 @@
-import Lottery from "/modules/lottery.js";
-import { politicians, folk, algebra } from "/data/data.js";
+import lectureData from "/data/data.js";
+import render from "/modules/render.js";
 
-const buttonStartLotteryEl = document.querySelector(".button-start-lottery");
-const lotteryResultsEl = document.querySelector(".lottery-results");
-const winningCombinationEl = document.querySelector(".winning-combination");
-const winnersMessageEl = document.querySelector(".winners-message");
-const winnersEl = document.querySelector(".winners");
+const lectures = lectureData;
+const searchFieldEl = document.querySelector("#searchField");
+const searchEl = document.querySelector(".search");
 
-buttonStartLotteryEl.addEventListener("click", () => {
-  const lottery = new Lottery(algebra);
+render(lectures);
 
-  buttonStartLotteryEl.disabled = true;
-  buttonStartLotteryEl.innerText = "Lottery drawing in progress...";
-  lotteryResultsEl.style.display = "none";
-
-  lottery
-    .startDrawing()
-    .then((result) => {
-      // console.log("EJ IMA POBJEDNIKA JEBOTE");
-      lotteryResultsEl.style.display = "block";
-      winnersEl.style.display = "block";
-      winningCombinationEl.innerText = `Winning combination was: ${result.winningCombination}`;
-      winnersMessageEl.innerText = "Winners: ";
-
-      let winnersList = "";
-      result.winners.forEach((winner) => {
-        winnersList += `<li>${winner.getPlayerDetails()}</li>`;
-      });
-
-      winnersEl.innerHTML = winnersList;
-    })
-    .catch((result) => {
-      // console.log("JEBOTE NEMA POBJEDNIKA");
-      winnersEl.style.display = "none";
-      winningCombinationEl.innerText = `Winning combination was: ${result.winningCombination}`;
-      winnersMessageEl.innerText = "There are no winners";
-    })
-    .finally(() => {
-      buttonStartLotteryEl.innerText = "Start lottery drawing";
-      buttonStartLotteryEl.disabled = false;
-      lotteryResultsEl.style.display = "block";
-      // console.log(lottery);
-    });
+searchFieldEl.addEventListener("keyup", (e) => {
+  let searchValue = searchFieldEl.value.toLowerCase();
+  const filteredLectures = [];
+  for (const lecture of lectures) {
+    // probaj s filter
+    let lectureNameForSearch = lecture.lectureName;
+    lectureNameForSearch = lecture.lectureName.toLowerCase();
+    console.log(lectureNameForSearch);
+    if (lectureNameForSearch.includes(searchValue)) {
+      filteredLectures.push(lecture);
+    }
+  }
+  render(filteredLectures);
+  if (!filteredLectures.length) {
+    const errorEl = document.createElement("p");
+    errorEl.innerText = "No results found!";
+    searchEl.append(errorEl); // treba urediti searchEl
+  }
 });

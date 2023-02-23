@@ -1,120 +1,36 @@
-export const politicians = [
+const lectureData = [
   {
-    name: "Stjepan",
-    surname: "Mesić",
+    lectureName: "HTML",
+    lectureLength: 14,
   },
   {
-    name: "Ivo",
-    surname: "Sanader",
+    lectureName: "CSS",
+    lectureLength: 14,
   },
   {
-    name: "Zoran",
-    surname: "Milanović",
+    lectureName: "JavaScript",
+    lectureLength: 20,
   },
   {
-    name: "Ljubo",
-    surname: "Česić Rojs",
+    lectureName: "Razvojna okolina",
+    lectureLength: 4,
   },
   {
-    name: "Marko",
-    surname: "Vešligaj",
+    lectureName: "React",
+    lectureLength: 20,
   },
   {
-    name: "Željko",
-    surname: "Kerum",
+    lectureName: "Serverside",
+    lectureLength: 10,
   },
   {
-    name: "Vladimir",
-    surname: "Šeks",
+    lectureName: "Figma",
+    lectureLength: 8,
   },
   {
-    name: "Anto",
-    surname: "Đapić",
-  },
-  {
-    name: "Anka",
-    surname: "Mrak Taritaš",
-  },
-  {
-    name: "George",
-    surname: "Bush",
-  },
-  {
-    name: "Ivica",
-    surname: "King Šarić",
+    lectureName: "BEM Methodology",
+    lectureLength: 5,
   },
 ];
 
-export const folk = [
-  {
-    name: "Đuro",
-    surname: "Đurić",
-  },
-  {
-    name: "Petar",
-    surname: "Perić",
-  },
-  {
-    name: "Ivica",
-    surname: "Ivić",
-  },
-  {
-    name: "Matija",
-    surname: "Majić",
-  },
-  {
-    name: "Jozo",
-    surname: "Marić",
-  },
-];
-
-export const algebra = [
-  {
-    name: "Alex",
-    surname: "Ivanac",
-  },
-  {
-    name: "Antonio",
-    surname: "Petrak",
-  },
-  {
-    name: "Aurora",
-    surname: "Milenković",
-  },
-  {
-    name: "Borna 'the Boss'",
-    surname: "Grilec",
-  },
-  {
-    name: "Danijel",
-    surname: "Hrgić",
-  },
-  {
-    name: "Igor",
-    surname: "Tomičić",
-  },
-  {
-    name: "Luka",
-    surname: "Modrić",
-  },
-  {
-    name: "Ivan",
-    surname: "Puljko",
-  },
-  {
-    name: "Ivan",
-    surname: "Puškar",
-  },
-  {
-    name: "Josip",
-    surname: "Batinić",
-  },
-  {
-    name: "Lidija",
-    surname: "Moslavac",
-  },
-  {
-    name: "Luka",
-    surname: "Matić",
-  },
-];
+export default lectureData;
