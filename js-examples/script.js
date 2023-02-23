@@ -1,5 +1,5 @@
 import Lottery from "/modules/lottery.js";
-import { politicians, folk } from "/data/data.js";
+import { politicians, folk, algebra } from "/data/data.js";
 
 const buttonStartLotteryEl = document.querySelector(".button-start-lottery");
 const lotteryResultsEl = document.querySelector(".lottery-results");
@@ -7,10 +7,9 @@ const winningCombinationEl = document.querySelector(".winning-combination");
 const winnersMessageEl = document.querySelector(".winners-message");
 const winnersEl = document.querySelector(".winners");
 
-const lottery = new Lottery(politicians);
-
 buttonStartLotteryEl.addEventListener("click", () => {
-  lottery.players = [];
+  const lottery = new Lottery(algebra);
+
   buttonStartLotteryEl.disabled = true;
   buttonStartLotteryEl.innerText = "Lottery drawing in progress...";
   lotteryResultsEl.style.display = "none";
@@ -41,7 +40,6 @@ buttonStartLotteryEl.addEventListener("click", () => {
       buttonStartLotteryEl.innerText = "Start lottery drawing";
       buttonStartLotteryEl.disabled = false;
       lotteryResultsEl.style.display = "block";
-      console.log("Lottery:");
-      console.log(lottery);
+      // console.log(lottery);
     });
 });

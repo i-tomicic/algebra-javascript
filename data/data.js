@@ -67,3 +67,54 @@ export const folk = [
     surname: "Marić",
   },
 ];
+
+export const algebra = [
+  {
+    name: "Alex",
+    surname: "Ivanac",
+  },
+  {
+    name: "Antonio",
+    surname: "Petrak",
+  },
+  {
+    name: "Aurora",
+    surname: "Milenković",
+  },
+  {
+    name: "Borna 'the Boss'",
+    surname: "Grilec",
+  },
+  {
+    name: "Danijel",
+    surname: "Hrgić",
+  },
+  {
+    name: "Igor",
+    surname: "Tomičić",
+  },
+  {
+    name: "Luka",
+    surname: "Modrić",
+  },
+  {
+    name: "Ivan",
+    surname: "Puljko",
+  },
+  {
+    name: "Ivan",
+    surname: "Puškar",
+  },
+  {
+    name: "Josip",
+    surname: "Batinić",
+  },
+  {
+    name: "Lidija",
+    surname: "Moslavac",
+  },
+  {
+    name: "Luka",
+    surname: "Matić",
+  },
+];
