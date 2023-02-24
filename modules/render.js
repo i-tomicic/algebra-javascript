@@ -1,6 +1,5 @@
-const gridEl = document.querySelector(".grid");
-
 const render = function (lectures) {
+  const gridEl = document.querySelector(".grid");
   gridEl.innerHTML = "";
   for (const lecture of lectures) {
     const cardEl = document.createElement("article");

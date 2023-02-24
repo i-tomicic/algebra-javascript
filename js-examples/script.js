@@ -3,26 +3,22 @@ import render from "/modules/render.js";
 
 const lectures = lectureData;
 const searchFieldEl = document.querySelector("#searchField");
-const searchEl = document.querySelector(".search");
+const searchErrorEl = document.querySelector(".search__error");
 
 render(lectures);
 
 searchFieldEl.addEventListener("keyup", (e) => {
-  let searchValue = searchFieldEl.value.toLowerCase();
-  const filteredLectures = [];
-  for (const lecture of lectures) {
-    // probaj s filter
-    let lectureNameForSearch = lecture.lectureName;
-    lectureNameForSearch = lecture.lectureName.toLowerCase();
-    console.log(lectureNameForSearch);
-    if (lectureNameForSearch.includes(searchValue)) {
-      filteredLectures.push(lecture);
-    }
-  }
+  const filteredLectures = lectures.filter((lecture) => {
+    return lecture.lectureName
+      .toLowerCase()
+      .includes(searchFieldEl.value.toLowerCase());
+  });
+
   render(filteredLectures);
+
   if (!filteredLectures.length) {
-    const errorEl = document.createElement("p");
-    errorEl.innerText = "No results found!";
-    searchEl.append(errorEl); // treba urediti searchEl
+    searchErrorEl.style.display = "block";
+  } else {
+    searchErrorEl.style.display = "none";
   }
 });
