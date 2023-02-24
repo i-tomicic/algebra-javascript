@@ -31,6 +31,10 @@ const lectureData = [
     lectureName: "BEM Methodology",
     lectureLength: 5,
   },
+  {
+    lectureName: "Math library",
+    lectureLength: 3,
+  },
 ];
 
 export default lectureData;
