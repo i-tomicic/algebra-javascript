@@ -6,3 +6,69 @@ h3 {
   padding: 0;
   box-sizing: border-box;
 }
+
+.section {
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.section__title {
+  font-size: 36px;
+  margin: 40px 0;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+#search__input {
+  font-size: 20px;
+  height: 35px;
+  padding-left: 12px;
+  width: 300px;
+}
+
+#search__order {
+  font-size: 20px;
+  height: 35px;
+  padding-left: 12px;
+  width: 200px;
+}
+
+.table,
+th,
+td {
+  margin: 20px 0;
+  border: 1px solid gray;
+  border-collapse: collapse;
+  text-align: left;
+  padding: 10px;
+}
+
+.table__head {
+  background-color: hsl(220, 100%, 50%);
+  color: white;
+}
+
+.table__row {
+  height: 40px;
+}
+
+.table__row:nth-child(even) {
+  background-color: lightgray;
+}
+
+.search__error {
+  text-align: center;
+  background-color: lightsalmon;
+  width: 400px;
+  padding: 15px;
+  border: 3px solid salmon;
+  border-radius: 15px;
+  align-self: center;
+}
