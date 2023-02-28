@@ -10,11 +10,9 @@ let filteredList = attendees;
 
 inputEl.addEventListener("keyup", () => {
   filteredList = [];
-  for (let el of attendees) {
-    if (el.name.toLowerCase().includes(inputEl.value.toLowerCase())) {
-      filteredList.push(el);
-    }
-  }
+  filteredList = attendees.filter((attendee) =>
+    attendee.name.toLowerCase().includes(inputEl.value.toLowerCase())
+  );
   renderHTML(filteredList);
 });
 
@@ -32,6 +30,16 @@ orderEl.addEventListener("change", () => {
     }
     case "desc": {
       filteredList.sort((a, b) => b.age - a.age);
+      renderHTML(filteredList);
+      break;
+    }
+    case "name_asc": {
+      filteredList.sort((a, b) => (a.name > b.name ? 1 : -1));
+      renderHTML(filteredList);
+      break;
+    }
+    case "name_desc": {
+      filteredList.sort((a, b) => (a.name < b.name ? 1 : -1));
       renderHTML(filteredList);
       break;
     }
