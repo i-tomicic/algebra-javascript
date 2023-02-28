@@ -20,17 +20,17 @@ inputEl.addEventListener("keyup", () => {
 
 orderEl.addEventListener("change", () => {
   switch (orderEl.value) {
-    case "default": {
+    case "def": {
       filteredList.sort((a, b) => a.id - b.id);
       renderHTML(filteredList);
       break;
     }
-    case "ascending": {
+    case "asc": {
       filteredList.sort((a, b) => a.age - b.age);
       renderHTML(filteredList);
       break;
     }
-    case "descending": {
+    case "desc": {
       filteredList.sort((a, b) => b.age - a.age);
       renderHTML(filteredList);
       break;

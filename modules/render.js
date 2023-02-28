@@ -1,9 +1,10 @@
 const tableBodyEl = document.querySelector(".table__body");
+const errorEl = document.querySelector(".search__error");
 
 const renderHTML = function (attendees) {
   tableBodyEl.innerHTML = "";
   if (attendees.length) {
-    document.querySelector(".search__error").style.display = "none";
+    errorEl.style.display = "none";
     for (let el of attendees) {
       const rowEl = document.createElement("tr");
       rowEl.classList.add("table__row");
@@ -17,8 +18,7 @@ const renderHTML = function (attendees) {
       tableBodyEl.append(rowEl);
     }
   } else {
-    document.querySelector(".search__error").style.display = "";
-    console.log("jel radi?");
+    errorEl.style.display = "";
   }
 };
 
